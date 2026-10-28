@@ -68,6 +68,12 @@ class LoggingConfig:
 
 
 @dataclass(frozen=True)
+class ApiConfig:
+    host: str
+    port: int
+
+
+@dataclass(frozen=True)
 class AppConfig:
     data: DataConfig
     split: SplitConfig
@@ -76,6 +82,7 @@ class AppConfig:
     evaluation: EvaluationConfig
     artifacts: ArtifactConfig
     logging: LoggingConfig
+    api: ApiConfig
 
 
 def load_config(config_path: Path = DEFAULT_CONFIG_PATH) -> AppConfig:
@@ -108,6 +115,7 @@ def load_config(config_path: Path = DEFAULT_CONFIG_PATH) -> AppConfig:
         evaluation=EvaluationConfig(**raw["evaluation"]),
         artifacts=ArtifactConfig(**raw["artifacts"]),
         logging=LoggingConfig(**raw["logging"]),
+        api=ApiConfig(**raw["api"]),
     )
 
 
