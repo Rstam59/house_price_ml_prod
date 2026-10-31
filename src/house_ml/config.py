@@ -4,10 +4,9 @@ from pathlib import Path
 
 import yaml
 
-
 _DEFAULT_PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-PROJECT_ROOT = Path(os.getenv('HOUSING_ML_ROOT', str(_DEFAULT_PROJECT_ROOT)))
+PROJECT_ROOT = Path(os.getenv("HOUSING_ML_ROOT", str(_DEFAULT_PROJECT_ROOT)))
 
 DEFAULT_CONFIG_PATH = PROJECT_ROOT / "configs" / "config.yaml"
 
